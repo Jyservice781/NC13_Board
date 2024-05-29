@@ -55,14 +55,13 @@ public class BoardViewer {
         temp.setNickname(nickname);
 
         BoardController boardController = new BoardController(connectionMaker);
-        if (boardController.insert(temp)) {
-            System.out.println("잘못입력하셨습니다.");
-        } else {
-            System.out.println("정상적으로 입력이 완료되었습니다.");
-        }
+        boardController.insert(temp);
+        System.out.println("정상적으로 입력이 완료되었습니다.");
     }
     // 리스트 출력
     private void printList(){
+        // 리스트 반복해서 돌리고 출력
+
 
     }
 
