@@ -60,7 +60,6 @@ public class UserController {
             preparedStatement.executeUpdate();
 
             return true;
-
         } catch (SQLException e) {
             return false;
         }

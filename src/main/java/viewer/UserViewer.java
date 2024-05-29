@@ -80,13 +80,17 @@ public class UserViewer {
 
     // 회원정보 수정
     private void showMenu() {
-        String message = "1.게시판으로  2.회원정보확인 3.로그아웃";
+        String message = "1.게시판으로  2.회원 정보 확인 3.로그아웃";
         while (logIn != null) {
             int userChoice = ScannerUtil.nextInt(SCANNER, message);
             if (userChoice == 1) {
-                //
+                //boardController 를 따로 보관할 필요가 없기
+                // 때문에 boardViewer 가 독립적이게 됨.
+                BoardViewer boardViewer = new BoardViewer(connectionMaker, SCANNER, logIn);
+                boardViewer.showMenu();
+
             } else if (userChoice == 2) {
-                //delete(id);
+
             } else if (userChoice == 3) {
                 System.out.println("정상적으로 로그아웃이 되셨습니다.");
                 logIn = null;
