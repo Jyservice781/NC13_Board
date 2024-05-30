@@ -41,6 +41,7 @@ public class UserController {
         } catch (SQLException e) {
             // SQLException 은 query 의 에러를 잡는다
             // exception 은 모든 에러를 잡는다.
+            // 로그가 찍힐 수 있도록 꼭 Exception 해줄것
             e.printStackTrace();
         }
         return null;
@@ -61,6 +62,7 @@ public class UserController {
 
             return true;
         } catch (SQLException e) {
+            e.printStackTrace();
             return false;
         }
     }

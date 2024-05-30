@@ -52,7 +52,6 @@ public class UserViewer {
         }
     }
 
-
     // 회원가입
     private void register() {
         String message = "사용하실 아이디를 입력해주세요";
@@ -63,7 +62,6 @@ public class UserViewer {
 
         message = "사용하실 닉네임을 입력해주세요";
         String nickname = ScannerUtil.nextLine(SCANNER, message);
-
 
         UserDTO attempt = new UserDTO();
         attempt.setUsername(username);
@@ -90,10 +88,31 @@ public class UserViewer {
                 boardViewer.showMenu();
 
             } else if (userChoice == 2) {
-
+                showList();
             } else if (userChoice == 3) {
                 System.out.println("정상적으로 로그아웃이 되셨습니다.");
                 logIn = null;
+            }
+        }
+    }
+
+    private void showList() {
+        UserDTO userDTO = new UserDTO();
+        System.out.println("============================================");
+        System.out.printf("닉네임: %s  회원이름: %s\n", userDTO.getNickname(), userDTO.getUsername());
+        System.out.printf("비밀번호: %d\n", userDTO.getPassword());
+        System.out.println("============================================");
+
+        String message = "1. 회원정보수정 2. 회원탈퇴 3. 로그아웃";
+        while (true) {
+            int userChoice = ScannerUtil.nextInt(SCANNER, message);
+            if (userChoice == 1) {
+                update();
+            } else if (userChoice == 2) {
+                delete(logIn.getId());
+            } else if (userChoice == 3){
+                logIn = null;
+                break;
             }
         }
     }
